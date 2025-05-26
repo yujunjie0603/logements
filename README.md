@@ -10,6 +10,8 @@ Functionality already used technology:
 
 Functionality:
 
+Backend:
+
 1. authentification
 2. gestion logement
 
@@ -23,3 +25,7 @@ Technology:
 2. Postgresql
 
 3. Docker
+
+Frontend:
+
+React
