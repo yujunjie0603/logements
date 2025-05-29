@@ -15,7 +15,7 @@ jobs:
         username: ${{ secrets.USERNAME_VPS}}
         key: ${{ secrets.SSH_KEY_VPS}}
         script: |
-          cd /root/logements
+          cd /root/logements/backend/
           
           echo "Pulling latest code"
           git pull origin main
