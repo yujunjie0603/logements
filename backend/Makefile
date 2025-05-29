@@ -1,16 +1,19 @@
 help:
-	@echo "🛠️ 可用命令："
-	@echo "  make build             构建 Docker 镜像"
-	@echo "  make up                启动容器服务"
-	@echo "  make down              停止并移除容器"
-	@echo "  make logs              查看日志"
-	@echo "  make shell             进入 Django 容器"
-	@echo "  make migrate           执行数据库迁移"
-	@echo "  make createsuperuser   创建超级用户"
-	@echo "  make celery            启动 Celery worker"
-	@echo "  make worker            同上"
-	@echo "  make beat              启动 Celery beat"
-	@echo "  make createprojet      creer le projet"
+	@echo " Commandes disponibles :"
+	@echo "  make build             Construire l'image Docker à partir du Dockerfile"
+	@echo "  make up                Démarrer les conteneurs en arrière-plan"
+	@echo "  make down              Arrêter et supprimer les conteneurs, réseaux et volumes"
+	@echo "  make logs              Afficher les journaux en temps réel des conteneurs"
+	@echo "  make shell             Ouvrir un shell interactif dans le conteneur Django"
+	@echo "  make exec              Exécuter une commande arbitraire dans le conteneur Django (params='commande')"
+	@echo "  make test              Lancer les tests pytest dans le conteneur (params='options pytest')"
+	@echo "  make migrate           Appliquer les migrations de la base de données"
+	@echo "  make makemigrations    Créer de nouvelles migrations selon les modèles"
+	@echo "  make createsuperuser   Créer un super-utilisateur Django"
+	@echo "  make celery            Démarrer un worker Celery pour les tâches asynchrones"
+	@echo "  make worker            Alias pour démarrer le worker Celery"
+	@echo "  make beat              Démarrer Celery beat pour les tâches périodiques planifiées"
+	@echo "  make createprojet      Créer une nouvelle application Django (app=nom_app)"
 
 build:
 	docker compose build
@@ -26,6 +29,9 @@ logs:
 
 shell:
 	docker compose exec web bash
+
+exec:
+	docker compose exec web $(params) 
 
 test:
 	docker compose exec web pytest $(params)
