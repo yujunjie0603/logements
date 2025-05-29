@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Déploiement sur VPS
+    runs-on: ubuntu-latest
+    steps:
+    - name: Déploiement sur le VPS via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{secrets.HOST_VPS}}
+        username: ${{ secrets.USERNAME_VPS}}
+        key: ${{ secrets.SSH_KEY_VPS}}
+        script: |
+          cd /root/logements/backend/
+          
+          echo "Pulling latest code"
+          git pull origin main
+
+          echo "Redemarrage conteneurs"
+
+          docker compose down
+          docker compose up -d --build
+          
+          
