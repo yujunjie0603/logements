@@ -1,0 +1,17 @@
+[
+  {
+    "model": "gestion_logement.appartment",
+    "pk": 1,
+    "fields": {
+      "name": "TestAppartment1",
+      "floor": 2,
+      "number": "201",
+      "address": "123 Test St",
+      "city": "Testville",
+      "cp": "12345",
+      "country": "France",
+      "type": "Studio",
+      "building": 1
+    }
+  }
+]
