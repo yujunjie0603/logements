@@ -12,7 +12,7 @@ jobs:
     - name: Déploiement sur le VPS via SSH
       uses: appleboy/ssh-action@master
       with:
-        host: ${{secrtes.HOST_VPS}}
+        host: ${{secrets.HOST_VPS}}
         username: ${{ secrets.USERNAME_VPS}}
         key: ${{ secrets.SSH_KEY_VPS}}
         script: |
