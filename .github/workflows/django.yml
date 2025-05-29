@@ -7,7 +7,7 @@ jobs:
   deploy:
     name: Déploiement sur VPS
     runs-on: ubuntu-latest
-
+    environment: HOST_VPS
     steps:
     - name: Déploiement sur le VPS via SSH
       uses: appleboy/ssh-action@master
